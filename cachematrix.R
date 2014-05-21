@@ -1,8 +1,16 @@
-## Put comments here that give an overall description of what your
-## functions do
+##
+## Made by Fredrik Emilsson
+##
+## These two functions make it possible to cache the invers of an NxN matrix.
+## Here is an example:
+## B = matrix(c(2, 4, 3, 1),nrow=2,ncol=2)
+## test <- makeCacheMatrix(B)
+## cacheSolve(test)
+##
+## If you runs cacheSolve(test) again you will see that the data is cached.
 
-## Write a short comment describing this function
-
+## This function handles an NxN matrix and the value of its invers. 
+## In parameter is a normal NxN matrix.
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y) {
@@ -18,8 +26,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
+## This function is used to get the invers of an NxN matrix. When re-running 
+## the function again the cached data is used.
+## In parameter is the result of the makeCacheMatrix function.
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   inv <- x$getinv()
@@ -30,6 +39,5 @@ cacheSolve <- function(x, ...) {
   data <- x$get()
   inv <- solve(data, ...)
   x$setinv(inv)
-  print("blabla")
   inv
 }

@@ -4,5 +4,4 @@ source("cachematrix.R")
 B = matrix(c(2, 4, 3, 1),nrow=2,ncol=2)
 test <- makeCacheMatrix(B)
 test$getinv()
-cache <- cacheSolve(test)
-cache
+cacheSolve(test)
